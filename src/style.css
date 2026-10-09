@@ -1,0 +1,41 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, sans-serif;
+  background: var(--tg-theme-bg-color, Canvas);
+  color: var(--tg-theme-text-color, CanvasText);
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+}
+
+dt {
+  color: var(--tg-theme-hint-color, GrayText);
+}
+
+dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  border: 0;
+  border-radius: 0.5rem;
+  font: inherit;
+  background: var(--tg-theme-button-color, #2481cc);
+  color: var(--tg-theme-button-text-color, #fff);
+}

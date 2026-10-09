@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MiTi tgcloud bot</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  </head>
+  <body>
+    <main id="app">
+      <h1>Your stats</h1>
+      <p id="status">Loading…</p>
+      <dl id="stats" hidden>
+        <dt>Name</dt><dd id="first-name"></dd>
+        <dt>Your messages</dt><dd id="message-count"></dd>
+        <dt>Member since</dt><dd id="member-since"></dd>
+        <dt>All users</dt><dd id="total-users"></dd>
+        <dt>All messages</dt><dd id="total-messages"></dd>
+      </dl>
+      <button id="refresh" type="button">Refresh</button>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
