@@ -6,6 +6,7 @@ A sample Telegram bot and Mini App running on [Telegram Serverless](https://core
 
 - **Any message:** the bot stores the sender in the `users` table, increments their message count, and replies with the running total.
 - **`/start`:** greets the user and, once `MINI_APP_URL` is set, shows an "Open stats" button.
+- **Menu:** every `npm run deploy` registers the `/` command menu (`/start`, `/zen`) and, once `MINI_APP_URL` is set, a "Stats" menu button that opens the Mini App. `npm run register-menu` re-runs only that step.
 - **`/zen`:** fetches a line from `https://api.github.com/zen` through the SDK's `fetch`.
 - **Mini App:** calls the `getStats` endpoint and shows the user's count, join date, and bot-wide totals.
 
@@ -16,7 +17,8 @@ A sample Telegram bot and Mini App running on [Telegram Serverless](https://core
 | `tgcloud/schema.js` | `users` table |
 | `tgcloud/handlers/message.js` | Message handler (`/start`, `/zen`, counter) |
 | `tgcloud/endpoints/getStats.js` | `POST /api/getStats`, called by the Mini App |
-| `tgcloud/lib/` | Shared code: user queries, GitHub Zen fetch, `MINI_APP_URL` |
+| `tgcloud/endpoints/registerMenu.js` | Registers the command menu and menu button; run by `npm run deploy`, refuses Mini App calls |
+| `tgcloud/lib/` | Shared code: user queries, GitHub Zen fetch, menu registration, `MINI_APP_URL` |
 | `index.html`, `src/` | Vite Mini App front-end (plain JavaScript) |
 | `tgcloud.jsonc` | Hosts the `dist` build folder as the Mini App |
 
@@ -41,7 +43,7 @@ Requires Node.js 18 or newer.
    npx tgcloud migrate
    ```
 
-4. Copy the Mini App URL that `push` printed into `tgcloud/lib/config.js` and run `npm run deploy` again. Optionally, set it as the bot's menu button or Main Mini App in BotFather.
+4. Copy the Mini App URL that `push` printed into `tgcloud/lib/config.js` and run `npm run deploy` again. The deploy then sets it as the bot's menu button; optionally, also set it as the Main Mini App in BotFather.
 
 ## Development
 

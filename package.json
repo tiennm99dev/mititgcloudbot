@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && tgcloud push",
+    "deploy": "npm run build && tgcloud push && npm run register-menu",
+    "register-menu": "tgcloud run endpoints/registerMenu",
     "lint": "eslint ."
   },
   "devDependencies": {
