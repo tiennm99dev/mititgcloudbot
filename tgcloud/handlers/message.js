@@ -28,7 +28,14 @@ export default async function (message) {
   }
 
   if (command === '/zen') {
-    await api.sendMessage({ chat_id: chatId, text: await fetchZen() });
+    let text;
+    try {
+      text = await fetchZen();
+    } catch (err) {
+      console.error(err);
+      text = 'GitHub Zen is unavailable right now, try again later.';
+    }
+    await api.sendMessage({ chat_id: chatId, text });
     return;
   }
 
